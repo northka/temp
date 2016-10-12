@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>jQuery slider</title>
+</head>
+<style>
+    body, div, dl, dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+    table{border-collapse:collapse;border-spacing:0;}
+    fieldset,img {border:0;}
+    address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+    ol,ul {list-style:none;}
+    h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+    q:before, q:after{content:' '}
+    abbr,acronym{border:0;}
+</style>
+<style>
+    ul {
+        vertical-align:top
+    }
+    #slider li img {
+        width: 100%;
+    }
+    #slider1 li {
+        height: 100%;
+        line-height: 0;
+    }
+    #slider1 li img{
+        width: 100%;
+        height: 100%;
+    }
+    .slider-container{
+        width: 100%;
+        overflow: hidden;
+    }
+    .slider-container1{
+        width: 100%;
+        overflow: hidden;
+    }
+    .splite-line{
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="slider-container">
+    <ul id="slider">
+        <li>
+            <img src="./1.jpg"/>
+        </li>
+        <li>
+            <img src="./2.jpg"/>
+        </li>
+        <li>
+            <img src="./3.jpg"/>
+        </li>
+        <li>
+            <img src="./4.jpg"/>
+        </li>
+        <li>
+            <img src="./5.jpg"/>
+        </li>
+    </ul>
+</div>
+
+<div class="splite-line">===========华丽的分割线===========</div>
+<div class="slider-container1">
+    <ul id="slider1">
+        <li>
+            <img src="./girl01.jpg"/>
+        </li>
+        <li>
+            <img src="./girl02.jpg"/>
+        </li>
+        <li>
+            <img src="./girl03.jpg"/>
+        </li>
+        <li>
+            <img src="./girl04.jpg"/>
+        </li>
+        <li>
+            <img src="./girl05.jpg"/>
+        </li>
+        <li>
+            <img src="./girl06.jpg"/>
+        </li>
+
+    </ul>
+</div>
+
+<script src="jquery-3.1.1.min.js"></script>
+<script src="index.js"></script>
+<script>
+    var aa =  Slider('#slider',{
+        changeIndex : function (index) {
+            console.log('slider: ' + index)
+        }
+    })
+    var bb = new $.fn.Slider('#slider1',{
+        mode     : 'vertical',
+        autoTime : 5000
+    })
+    bb.indexChange(function (index) {
+        console.log('slider1: ' + index)
+    })
+</script>
+</body>
+</html>
