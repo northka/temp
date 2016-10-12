@@ -1,5 +1,6 @@
 # Slider使用说明
 
+由于一直做的是移动端的开发，所以我就做了个移动端的slider
 ------
 ##Slider支持得配置参数
 > * mode        滑动方向           （default horizontal）
