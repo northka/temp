@@ -17,7 +17,7 @@
         function (callback) { window.setTimeout(callback, 1000 / 60) }
     // 公共函数
     // ===================================================================================
-    var util = (function(){
+    var util = (function() {
         var me = {}
         me.isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1
         me.block  = function(num, min, max){
@@ -135,6 +135,7 @@
     // next               ：向后翻页
     // getComputedStyle   ：获得当前页面滚动位置
     // indexChange        ：添加页数改变监听函数
+    // setIndex           : 滚动到某页
     // __changeIndex :    ：实现翻页功能
     // __modifyIndex      ：修改页数
     // __autoplay         ：自动播放函数
@@ -149,6 +150,9 @@
         prev               : function () {
            this.__changeIndex(-1)
         },
+        next               : function () {
+            this.__changeIndex(1)
+        },
         getComputedStyle   : function () {
             var matrix = this._container.css('transform').split(')')[0].split(', ')
             var x = +(matrix[12] || matrix[4])
@@ -158,13 +162,14 @@
                 y: y
             }
         },
-        next               : function () {
-            this.__changeIndex(1)
-        },
         indexChange        : function ( func ) {
             this._opt.indexChange = func
         },
-        __changeIndex      : function ( offset ){
+        setIndex           : function ( index ) {
+            var offset = index - this._status.index
+            this.__changeIndex(offset)
+        },
+        __changeIndex      : function ( offset ) {
             var position = this.getComputedStyle(),
                 self     = this
             function callBack() {
@@ -312,7 +317,7 @@
                 position      = this.getComputedStyle()
             this.__animate(position.x, position.y, -childPosition.x, -childPosition.y, this._opt.duration)
         },
-        __animate          : function ( startX, startY, destX, destY, duration, callback ){
+        __animate          : function ( startX, startY, destX, destY, duration, callback ) {
             var self       = this,
                 startTime  = Date.now(),
                 callbacked = false
