@@ -13,6 +13,7 @@
 ##Slider 供调用函数
 > * prev               向前翻页
 > * next               向后翻页
+> * setIndex           设置页数
 > * indexChange        添加页数改变监听函数
 > * getComputeStyle    获得当前页面滚动位置
 
